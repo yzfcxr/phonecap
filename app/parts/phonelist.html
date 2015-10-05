@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-2">
+			<div class="row">
+				<div class="col-md-12">
+					<span>Search:</span>
+					<input type="text" ng-model="query"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span>sorted by:</span>
+					<select ng-model="orderProp">
+						<option value="name">Alphabet</option>
+						<option value="age">Newest</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-10">
+			<ul class="phones">
+				<li class="thumbnail phone-listing" ng-repeat="phone in phones|filter:query|orderBy:orderProp">
+					<a href="#/phones/{{phone.id}}" class="thumb">
+						<img ng-src="{{phone.imageUrl}}" />
+					</a>
+					<a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+					<p>{{phone.snippet}}</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
